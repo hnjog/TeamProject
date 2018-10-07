@@ -2,17 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerUnit : MonoBehaviour {
+public class LancerUnit : MonoBehaviour {
 
-    [Header("이동 관련 변수")]
-    public float playerUnitSpeed = 1f;                 //플레이어 유닛 이동속도
-    public Rigidbody2D playerUnitRb;                   //플레이어 유닛의 리지드바디
+	[Header("이동 관련 변수")]
+    public float lancerUnitSpeed = 0.7f;                 //유닛 이동속도
+    public Rigidbody2D lancerUnitRb;                   //유닛의 리지드바디
     
     [Header("스텟 관련 변수")]
-    public int playerUnitHp = 10;                      //플레이어 유닛 체력
-    public int playerUnitAttack = 1;                   //플레이어 유닛 공격력
-    public int playerUnitDepend = 1;                   //플레이어 유닛 방어력
-    public int playerUnitCost = 1;                     //플레이어 유닛 코스트
+    public int lancerUnitHp = 50;                      //유닛 체력
+    public int lancerUnitAttack = 3;                   //유닛 공격력
+    public int lancerUnitDepend = 5;                   //유닛 방어력
+    public int lancerUnitCost = 120;                     //유닛 코스트
+	public int lancerCoolTime = 20;
     
 
     [Header("Enemy 관련 변수")]
@@ -25,11 +26,7 @@ public class PlayerUnit : MonoBehaviour {
     [Header("Enemy 관련 변수")]
     public bool playerisDie = false;                   //플레이어 유닛 죽음체크
 
-    private void Start()
-    {
-        playerUnitRb = GetComponent<Rigidbody2D>();
-    }
-
+    
     void Update()
     {
         StartCoroutine("Move");
@@ -38,7 +35,7 @@ public class PlayerUnit : MonoBehaviour {
     //이동
     IEnumerator Move()
     {
-        transform.Translate(Vector3.right * playerUnitSpeed * Time.deltaTime);
+        transform.Translate(Vector3.right * lancerUnitSpeed * Time.deltaTime);
         yield return new WaitForSeconds(1f);
     }
 
@@ -56,11 +53,4 @@ public class PlayerUnit : MonoBehaviour {
             //enemyNexusHp = other.GetComponent<EnemyNexus>().enemyNexusHp;
         }
     }
-
-    IEnumerator Damage()
-    {
-
-        yield return new WaitForSeconds(1f);
-    }
-
 }

@@ -13,6 +13,16 @@ public class UnitChoose : MonoBehaviour
     [Header("Prefab 관련 변수")]
     GameObject chosenUnit;                                                 //선택한 유닛(프리팹)
 
+    [Header("생산 관련 변수")]
+    public int unitCooltime;
+    public int unitCost;
+    public float cooltimeChecker = 0;
+    bool canSwordCreate = true;                                           // 생산 가능 변수는 따로 두었음
+    bool canAchorCreate = true;
+    bool canLanceCreate = true;
+    bool canShieldCreate = true;
+     
+
     private Vector2 mousePos;
     private RaycastHit2D rayHit;
     //내부 관련 변수
@@ -25,7 +35,6 @@ public class UnitChoose : MonoBehaviour
     {
         UnitCreater.playerUnit = chosenUnit;                               //선택한 유닛의 정보를 UnitCreater로 넘긴다
     }
-
 
     private void Update()
     {
@@ -46,8 +55,10 @@ public class UnitChoose : MonoBehaviour
                     if (rayHit.transform.tag == "PlayerUnit")
                     {
                         playerUnit = Instantiate(rayHit.transform.gameObject, mousePos, Quaternion.identity);
+                        playerUnit.name = rayHit.transform.name;
                         playerUnit.transform.localScale = new Vector2(9, 9);
                         playerUnit.GetComponent<BoxCollider2D>().enabled = false;
+                        //startcorutine
                     }
                 }
             }
@@ -71,7 +82,23 @@ public class UnitChoose : MonoBehaviour
                 }
                 else
                 {
-                    playerUnit.GetComponent<PlayerUnit>().enabled = true;
+                    switch(playerUnit.name)
+                    {
+                         case "Sword Unit":
+                            playerUnit.GetComponent<SwordUnit>().enabled = true;
+                            unitCooltime = playerUnit.GetComponent<SwordUnit>().swordCoolTime;
+                            break;
+                        case "Achor Unit":
+                            playerUnit.GetComponent<AchorUnit>().enabled = true;
+                            break;
+                        case "Lancer Unit":
+                            playerUnit.GetComponent<LancerUnit>().enabled = true;
+                            break;
+                        case "Shield Unit":
+                            playerUnit.GetComponent<ShieldUnit>().enabled = true;
+                            break;
+                    }
+                    
                     //내려놓는 위치의 이름에 따라 지정되는 위치가 차이가 난다.
                     switch (rayHit.transform.name)
                     {
@@ -89,8 +116,17 @@ public class UnitChoose : MonoBehaviour
                             break;
                     }
                     playerUnit = null;
-                }
-            }
+                }//else 끝
+            }//비어 있지 않은가 체크 끝
+        }//마우스 떼었을떄 끝
+    }// update 끝
+    IEnumerator Cooltime()
+    {
+        
+        while (true)
+        {
+
         }
     }
+
 }
