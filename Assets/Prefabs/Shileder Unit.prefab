@@ -21,10 +21,9 @@ GameObject:
   - component: {fileID: 4528017204999102}
   - component: {fileID: 212636676080601186}
   - component: {fileID: 61472938637081906}
-  - component: {fileID: 114663741043508758}
   m_Layer: 0
   m_Name: Shileder Unit
-  m_TagString: Untagged
+  m_TagString: PlayerUnit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -56,9 +55,9 @@ BoxCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
-    border: {x: 0.049999997, y: 0.049999997, z: 0.049999997, w: 0.049999997}
+    border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.16, y: 0.16}
+    oldSize: {x: 0.1665039, y: 0.1686198}
     newSize: {x: 0.16, y: 0.16}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -67,30 +66,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.16, y: 0.16}
   m_EdgeRadius: 0
---- !u!114 &114663741043508758
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1300829606001302}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 570119e3dc937ee449bfdb1f40f2e754, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shieldUnitSpeed: 1
-  shieldUnitRb: {fileID: 0}
-  shieldUnitHp: 80
-  shieldUnitAttack: 15
-  shieldUnitDepend: 15
-  shieldUnitCost: 200
-  shieldCoolTime: 30
-  enemyUnit: {fileID: 0}
-  enemyUnitHp: 0
-  enemyUnitAttack: 0
-  enemyNexus: {fileID: 0}
-  enemyNexusHp: 0
-  playerisDie: 0
 --- !u!212 &212636676080601186
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -100,7 +75,6 @@ SpriteRenderer:
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -116,7 +90,6 @@ SpriteRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 0
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -125,8 +98,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 0.116632715, g: 0.04411763, b: 1, a: 1}
+  m_Sprite: {fileID: 21300004, guid: cdb3557a71a665b47bdc12e4a5fbe04b, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -134,4 +107,3 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
